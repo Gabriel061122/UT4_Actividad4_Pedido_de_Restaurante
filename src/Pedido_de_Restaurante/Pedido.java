@@ -79,6 +79,25 @@ public class Pedido {
     }
 
 
+    public String getNombreCliente() {
+        return this.nombreCliente;
+    }
+
+    public void setNombreCliente(String nombreCliente) {
+        this.nombreCliente = nombreCliente;
+    }
+
+    public HashMap<Articulo, Integer> getListaArticulos() {
+        return this.listaArticulos;
+    }
+
+    public static int getIdPedido() {
+        return idPedido;
+    }
+
+    public EstadoPedido getEstado() {
+        return this.estado;
+    }
 }
 
 

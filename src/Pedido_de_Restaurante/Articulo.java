@@ -3,12 +3,10 @@ package Pedido_de_Restaurante;
 public class Articulo {
     private int id = (int)(Math.random()*1000000);
     private String nombre;
-    private int cantidad;
     private double precio;
 
     public Articulo(String nombre, int cantidad, double precio) {
         this.nombre = nombre;
-        this.cantidad = cantidad;
         this.precio = precio;
     }
 
@@ -22,5 +20,13 @@ public class Articulo {
 
     public double getPrecio(){
         return this.precio;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
     }
 }
