@@ -1,5 +1,8 @@
-package Pedido_de_Restaurante;
+package PedidoRestaurante;
 
+
+import Excepciones.CantidadInvalidaDeArticulo;
+import Excepciones.LimiteArticulosAlcanzadoException;
 
 import java.util.*;
 
@@ -11,15 +14,15 @@ public class Pedido {
 
     private EstadoPedido estado;
 
-    public Pedido(String nombreCliente) {
+    public Pedido(String nombreCliente)  {
         this.nombreCliente = nombreCliente;
         this.estado = EstadoPedido.EN_PREPARACION;
     }
 
-    public void anyadirArticulo(Articulo articulo) {
+    public void anyadirArticulo(Articulo articulo) throws Exception {
         if (listaArticulos.size() <= 5) {
             listaArticulos.put(articulo, 1);
-        } else System.out.println("No se puede añadir un sexto artículo. El tamaño máximo del pedido es 5");
+        } else {throw new LimiteArticulosAlcanzadoException();}
 
     }
 
@@ -32,8 +35,10 @@ public class Pedido {
         listaArticulos.put(articulo, cantidad+1);
     }
 
-    public void diminuirCantidad(Articulo articulo) {
-        listaArticulos.put(articulo, 0);
+    public void diminuirCantidad(Articulo articulo) throws CantidadInvalidaDeArticulo {
+        int cantidad = listaArticulos.get(articulo);
+        if(cantidad == 1) throw new CantidadInvalidaDeArticulo();
+        listaArticulos.put(articulo, cantidad-1);
     }
 
     public void printPedido() {

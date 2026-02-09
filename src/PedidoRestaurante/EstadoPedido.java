@@ -1,4 +1,4 @@
-package Pedido_de_Restaurante;
+package PedidoRestaurante;
 
 public enum EstadoPedido {
     EN_PREPARACION,

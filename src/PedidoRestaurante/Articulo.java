@@ -1,4 +1,4 @@
-package Pedido_de_Restaurante;
+package PedidoRestaurante;
 
 public class Articulo {
     private int id = (int)(Math.random()*1000000);
