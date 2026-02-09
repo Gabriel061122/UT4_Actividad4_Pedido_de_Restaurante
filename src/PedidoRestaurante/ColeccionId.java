@@ -1,11 +1,11 @@
-package Pedido_de_Restaurante;
+package PedidoRestaurante;
 
 import java.util.HashSet;
-import java.util.Set;
+
 
 class ColeccionId {
 
-  private Set<Integer> ids;
+  private HashSet<Integer> ids;
 
   public ColeccionId() {
     ids = new HashSet<>();
