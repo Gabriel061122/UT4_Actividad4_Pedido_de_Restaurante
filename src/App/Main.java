@@ -12,19 +12,29 @@ public class Main {
 
     public static void main(String[] args) {
         HashSet<Articulo> articulos = new HashSet<>();
-        articulos.add(new Articulo("Teclado MX", 99.99));
-        articulos.add(new Articulo("Ratón MX", 59.99));
-        articulos.add(new Articulo("Monitor IPS 4k", 199.99));
-        articulos.add(new Articulo("SSD 1TB", 56.50));
-        articulos.add(new Articulo("RAM 2x16 DDR5", 599.99));
-        articulos.add(new Articulo("Fuente Alimentación 700W", 129.99));
+        articulos.add(new Articulo("Paella de mariscos", 18.50));
+        articulos.add(new Articulo("Hamburguesa gourmet", 12.99));
+        articulos.add(new Articulo("Pizza cuatro quesos", 14.75));
+        articulos.add(new Articulo("Ensalada César", 9.50));
+        articulos.add(new Articulo("Salmón a la plancha", 21.90));
+        articulos.add(new Articulo("Tarta de chocolate", 6.80));
 
 
         while(true){
             System.out.println("Hola!");
             imprimirArticulos(articulos);
+            System.out.println("\n");
             imprimirMenu();
+            int opcion = obtenerOpcionMenu();
+            if(opcion == 1){
+                imprimirArticulos(articulos);
+                System.out.println("\n");
+            } else if(opcion == 2){
+                buscarArticulo(articulos, sc.nextLine());
+                System.out.println("\n");
+            } else if(opcion == 3){
 
+            }
         }
     }
 
@@ -59,5 +69,19 @@ public class Main {
         }
     }
 
-    public static int obtenerNumero
+    public static int obtenerNumero(int limite){
+        while(true){
+            try{
+                int numero = sc.nextInt();
+                if(numero >= 1 && numero <= limite){
+                    return numero;
+                }
+            } catch (Exception e) {
+            }
+        }
+    }
+
+    public static int obtenerOpcionMenu(){
+        return obtenerNumero(8);
+    }
 }
