@@ -20,7 +20,7 @@ public class Pedido {
     }
 
     public void anyadirArticulo(Articulo articulo) throws Exception {
-        if (listaArticulos.size() <= 5) {
+        if (listaArticulos.size() < 5) {
             listaArticulos.put(articulo, 1);
         } else {throw new LimiteArticulosAlcanzadoException();}
 
@@ -43,14 +43,14 @@ public class Pedido {
 
     public void printPedido() {
 
+        int index = 0;
         Articulo[] articulos =  listaArticulos.keySet().toArray(new Articulo[listaArticulos.size()]);
-        ArrayList<Integer> cantidades = (ArrayList<Integer>) listaArticulos.values();
+        Collection<Integer> cantidades = listaArticulos.values();
 
-        for (int i = 0; i < articulos.length; i++) {
-            Integer cantidad = cantidades.get(i);
-            System.out.print(articulos[i].getNombre() + ": " + cantidad + "\n");
-
+        for  (Integer cantidad : cantidades) {
+            System.out.println(articulos[index].getNombre()+", CANTIDAD: "+cantidad + ", PRECIO POR UNIDAD: " + articulos[index].getPrecio());
         }
+
         System.out.println("PRECIO TOTAL: " + calcularTotal());
         System.out.println("ID PEDIDO: " + idPedido);
 
@@ -59,14 +59,14 @@ public class Pedido {
     public double calcularTotal(){
 
         double total = 0;
+        int index = 0;
 
         Articulo[] articulos =  listaArticulos.keySet().toArray(new Articulo[listaArticulos.size()]);
-        ArrayList<Integer> cantidades = (ArrayList<Integer>) listaArticulos.values();
-        for (int i = 0; i < articulos.length; i++) {
-            Integer cantidad = cantidades.get(i);
-            total += cantidad*articulos[i].getPrecio();
+        Collection<Integer> cantidades = listaArticulos.values();
+        for (Integer cantidad : cantidades) {
+            total += cantidad*articulos[index].getPrecio();
+            index++;
         }
-
         return total;
     }
 
