@@ -7,10 +7,10 @@ Es un pequeño proyecto estudiantil de programación orientada a objetos, en don
 
 ### Instrucciones: 
 
-- 1: Descarga el proyecto
-- 2: Ejecuta en la terminal el siguiente comando, una vez que hayas entrado en la carpeta UT4_Actividad4_Pedido_de_Restaurante:
-
-     java src/main/java/App.java
-
-- 3: Sigue las intrucciones que el programa te dará para ejecutarse!
+- 1. En la terminal, muévete al directorio en el que quieres descargar el archivo
+- 2. Ejecuta el comando siguiente:
+     ```
+     git clone https://github.com/Gabriel061122/UT4_Actividad4_Pedido_de_Restaurante/
+     ```
+- 3. Una vez descargado, están todos los tests de cada método y clase preparados. 
 
